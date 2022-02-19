@@ -15,9 +15,9 @@ if ($conn->connect_error) {
 $sql = "DELETE FROM fridgev2 WHERE Name = '$Name'";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Продукт успешно уделн из списка";
+    echo "<p>Поздравляю! Продукт успешно удален из вашего списка. Вернитесь назад, чтобы посмотреть обновленный список продуктов.</p>";
 } else {
-    echo "Ошибка: " . $sql. "<br>" . $conn->error;
+    echo "К сожалению, произошла ошибка: " . $sql. "<br>" . $conn->error;
 }
 
 $conn->close();

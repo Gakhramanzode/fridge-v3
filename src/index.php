@@ -2,7 +2,7 @@
 
 $date = date('Y-m-d');
 
-echo "<title>Список продуктов</title>";
+echo "<title>Мой список продуктов</title>";
 echo "<h1>Список твоих продуктов</h1>";
 echo "Сегодняшняя дата: $date";
 echo "<hr>";

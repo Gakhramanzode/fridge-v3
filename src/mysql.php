@@ -17,9 +17,9 @@ if ($conn->connect_error) {
 $sql = "INSERT INTO fridgev2(Name, ProductionDate, ExpirationDate) VALUES('$Name', '$ProductionDate', '$ExpirationDate')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Продукт успешно добавлен";
+    echo "<p>Поздравляю! Продукт успешно добавлен. Вернитесь назад, чтобы посмотреть обновленный список продуктов.</p>";
 } else {
-    echo "Ошибка: " . $sql. "<br>" . $conn->error;
+    echo "К сожалению, произошла ошибка: " . $sql. "<br>" . $conn->error;
 }
 
 $conn->close();
