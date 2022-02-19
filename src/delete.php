@@ -1,7 +1,5 @@
 <?php
 $Name = $_POST['Name'];
-$ProductionDate = $_POST['ProductionDate'];
-$ExpirationDate = $_POST['ExpirationDate'];
 
 $servername = 'localhost';
 $username = 'root';
@@ -14,10 +12,10 @@ if ($conn->connect_error) {
     die ('Не удалось подключиться ' . $conn->connect_error);
 }
 
-$sql = "INSERT INTO fridgev2(Name, ProductionDate, ExpirationDate) VALUES('$Name', '$ProductionDate', '$ExpirationDate')";
+$sql = "DELETE FROM fridgev2 WHERE Name = '$Name'";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Продукт успешно добавлен";
+    echo "Продукт успешно уделн из списка";
 } else {
     echo "Ошибка: " . $sql. "<br>" . $conn->error;
 }
@@ -25,5 +23,4 @@ if ($conn->query($sql) === TRUE) {
 $conn->close();
 
 echo '<br><br><a href="index.php">Вернуться назад</a>';
-
 ?>
