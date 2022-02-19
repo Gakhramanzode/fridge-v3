@@ -1,4 +1,7 @@
 <?php
+
+echo "<title>Продукт успешно добавлен</title>";
+
 $Name = $_POST['Name'];
 $ProductionDate = $_POST['ProductionDate'];
 $ExpirationDate = $_POST['ExpirationDate'];
@@ -17,7 +20,7 @@ if ($conn->connect_error) {
 $sql = "INSERT INTO fridgev2(Name, ProductionDate, ExpirationDate) VALUES('$Name', '$ProductionDate', '$ExpirationDate')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "<p>Поздравляю! Продукт успешно добавлен. Вернитесь назад, чтобы посмотреть обновленный список продуктов.</p>";
+    echo "<p>Поздравляю! Продукт успешно добавлен в ваш список. Вернитесь назад, чтобы посмотреть обновленный список продуктов.</p>";
 } else {
     echo "К сожалению, произошла ошибка: " . $sql. "<br>" . $conn->error;
 }

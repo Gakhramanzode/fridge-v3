@@ -1,4 +1,6 @@
 <?php
+echo "<title>Продукт успешно удален</title>";
+
 $Name = $_POST['Name'];
 
 $servername = 'localhost';
