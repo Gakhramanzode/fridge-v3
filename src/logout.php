@@ -4,7 +4,7 @@
   if (isset($_SESSION['user']))
   {
     destroySession();
-    echo "<br><br><div class='center'>Вы вышли из системы. Пожалуйста,
+    echo "<br><div class='center'>Вы вышли из системы. Пожалуйста,
          <a data-transition='slide'
            href='index.php?r=$randstr'>нажмите здесь,</a>
             чтобы обновить экран.</div>";

@@ -7,8 +7,6 @@ echo <<<_INIT
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Мой список продуктов</title>
-        <h1>Список твоих продуктов</h1>
     </head>
 </html>
 _INIT;
@@ -30,23 +28,22 @@ if ($loggedin)
 {
   $date = date('Y-m-d');
   echo <<<_LOGGEDIN
-  <a data-role='button' data-inline='true' data-icon='action'
-    data-transition="slide" href='logout.php?r=$randstr'>Выйти</a>
-
-  <br><br>
+  <title>Мой список продуктов</title>
+  <h1>Список твоих продуктов</h1>
 
   Сегодняшняя дата: $date
   <hr>
   _LOGGEDIN;
   require_once 'loginDB.php';
 
-  $db_server = mysqli_connect($db_hostname, $db_username, $db_password, $db_database);
+  $db_server = mysqli_connect($host, $user, $pass, $data);
   if (!$db_server) die ("Невозможно подключиться ");
   
-  $query = 'SELECT Name,ExpirationDate from fridgev2 order by ExpirationDate';
+  $query = "SELECT Name,ExpirationDate from asker order by ExpirationDate";
+//   if (!$query) die ("Невозможно подключиться ");
   $result = mysqli_query($db_server, $query);
   if (!$result) die ("Невозможно подключиться ");
-  
+
   echo "<h2>Ваш список продуктов</h2>";
   
   echo "<ol>\n";
@@ -88,8 +85,13 @@ if ($loggedin)
       <label for="Name">Наименование продукта:</label>
       <input type="text" name="Name">
   </p>
-  <input type="submit" value="Удалить продукт">';
-  
+  <input type="submit" value="Удалить продукт">
+  <br>
+  <br>
+  <nav>
+  <a data-role="button" data-inline="true" data-icon="action"
+    data-transition="slide" href="logout.php?r=$randstr">Выйти</a>
+  </nav>';
 }
 else
 {
@@ -101,7 +103,6 @@ echo <<<_GUEST
               data-transition="slide" href='signup.php?r=$randstr''>Регистрация</a>
           </div>
           <p class='info'>(Вы должны войти в систему, чтобы использовать это приложение)</p>
-  
 _GUEST;
 }
 ?>

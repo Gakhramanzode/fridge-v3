@@ -2,7 +2,9 @@
   // session_start();
   require_once 'header.php';
 
-  echo "<div class='center'>Добро пожаловать,";
+  echo "
+  <title>Вход</title>
+  <div class='center'>Добро пожаловать,";
 
   if ($loggedin) echo " $user, вы залогинены";
   else           echo ' пожалуйста, войдите или зарегистрируйтесь';

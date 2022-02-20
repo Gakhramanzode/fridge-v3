@@ -1,8 +1,8 @@
 <?php
-  $host = 'localhost';    // Change as necessary
-  $data = 'publications';   // Change as necessary
-  $user = 'root';   // Change as necessary
-  $pass = '';     // Change as necessary
+  $host = '31.31.196.165';    // Change as necessary
+  $data = 'u1603907_publications';   // Change as necessary
+  $user = 'u1603907_default';   // Change as necessary
+  $pass = 'r11WsoLcvg6N7YsA';     // Change as necessary
   $chrs = 'utf8mb4';
   $attr = "mysql:host=$host;dbname=$data;charset=$chrs";
   $opts =

@@ -3,21 +3,24 @@ echo "<title>Продукт успешно удален</title>";
 
 $Name = $_POST['Name'];
 
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'publications';
+// $servername = 'localhost';
+// $username = 'root';
+// $password = '';
+// $database = 'publications';
 
-$conn = new mysqli($servername, $username, $password, $database);
+require_once 'loginDB.php';
+
+$conn = new mysqli($host, $user, $pass, $data);
 
 if ($conn->connect_error) {
     die ('Не удалось подключиться ' . $conn->connect_error);
 }
 
-$sql = "DELETE FROM fridgev2 WHERE Name = '$Name'";
+$sql = "DELETE FROM asker WHERE Name = '$Name'";
 
 if ($conn->query($sql) === TRUE) {
-    echo "<p>Поздравляю! Продукт успешно удален из вашего списка. Вернитесь назад, чтобы посмотреть обновленный список продуктов.</p>";
+    // echo "<p>Поздравляю! Продукт успешно удален из вашего списка. Вернитесь назад, чтобы посмотреть обновленный список продуктов.</p>";
+    header('Location: /src/header.php');
 } else {
     echo "К сожалению, произошла ошибка: " . $sql. "<br>" . $conn->error;
 }
