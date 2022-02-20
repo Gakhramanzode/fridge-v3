@@ -27,6 +27,6 @@ if ($conn->query($sql) === TRUE) {
 
 $conn->close();
 
-echo '<br><br><a href="index.php">Вернуться назад</a>';
+echo '<br><br><a href="header.php">Вернуться назад</a>';
 
 ?>

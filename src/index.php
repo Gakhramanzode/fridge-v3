@@ -1,71 +1,20 @@
-<?php
+<?php // Example 04: index.php
+  // session_start();
+  require_once 'header.php';
 
-$date = date('Y-m-d');
+  echo "<div class='center'>Добро пожаловать,";
 
-echo "<title>Мой список продуктов</title>";
-echo "<h1>Список твоих продуктов</h1>";
-echo "Сегодняшняя дата: $date";
-echo "<hr>";
+  if ($loggedin) echo " $user, вы залогинены";
+  else           echo ' пожалуйста, войдите или зарегистрируйтесь';
 
-require_once 'login.php';
-$db_server = mysqli_connect($db_hostname, $db_username, $db_password, $db_database);
-if (!$db_server) die ("Невозможно подключиться ");
-
-$query = 'SELECT Name,ExpirationDate from fridgev2 order by ExpirationDate';
-$result = mysqli_query($db_server, $query);
-if (!$result) die ("Невозможно подключиться ");
-
-echo "<h2>Ваш список продуктов</h2>";
-
-echo "<ol>\n";
-while ($line = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-    echo "<li>\n";
-    foreach ($line as $col_value) {
-        echo "$col_value\t";
-    }
-    echo "</li>\n";
-}
-echo "</ol>\n";
-
-// // Освобождаем память от результата
-// mysqli_free_result($result);
-
-// // Закрываем соединение
-// mysqli_close($db_server);
-?>
-
-<?php
-echo "<hr>";
-
-echo "<h2>Добавить продукт в список</h2>";
-
-echo '<form action="mysql.php" method="post">
-<p>
-    <label for="Name">Наименование продукта:</label>
-    <input type="text" name="Name">
-</p>
-
-<p>
-    Выберите дату производства: <input type="date" name="ProductionDate">
-</p>
-
-<p>
-    Выберите дату окончания срока действия: <input type="date" name="ExpirationDate">
-</p>
-    <input type="submit" value="Добавить продукт">
-</form>';
-?>
-
-<?php
-echo "<hr>";
-
-echo "<h2>Удалить продукт из списка</h2>";
-
-echo '<form action="delete.php" method="post">
-<p>
-    <label for="Name">Наименование продукта:</label>
-    <input type="text" name="Name">
-</p>
-<input type="submit" value="Удалить продукт">';
-
+//   echo <<<_END
+//       </div><br>
+//     </div>
+//     <div data-role="footer">
+//       <h4>Web App from <i><a href='https://github.com/RobinNixon/lpmj6'
+//       target='_blank'>Learning PHP MySQL & JavaScript</a></i></h4>
+//     </div>
+//   </body>
+// </html>
+// _END;
 ?>
