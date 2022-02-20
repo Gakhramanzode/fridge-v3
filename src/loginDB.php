@@ -1,4 +1,4 @@
-<?php //login.php
+<?php
 $db_hostname = 'localhost';
 $db_username = 'root';
 $db_password = '';

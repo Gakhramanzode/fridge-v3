@@ -1,4 +1,4 @@
-<?php // Example 05: signup.php
+<?php 
   require_once 'header.php';
 
 echo <<<_END

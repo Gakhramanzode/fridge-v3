@@ -9,23 +9,25 @@ echo <<<_INIT
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Мой список продуктов</title>
         <h1>Список твоих продуктов</h1>
+    </head>
+</html>
 _INIT;
 
-    require_once 'functions.php';
+require_once 'functions.php';
 
-    $userstr = 'Добро пожаловать';
-    $randstr = substr(md5(rand()), 0, 7);
+$userstr = 'Добро пожаловать';
+$randstr = substr(md5(rand()), 0, 7);
 
-    if (isset($_SESSION['user']))
-    {
-      $user     = $_SESSION['user'];
-      $loggedin = TRUE;
-      $userstr  = "Профиль: $user";
-    }
-    else $loggedin = FALSE;
+if (isset($_SESSION['user']))
+{
+  $user     = $_SESSION['user'];
+  $loggedin = TRUE;
+  $userstr  = "Профиль: $user";
+}
+else $loggedin = FALSE;
 
-    if ($loggedin)
-    {
+if ($loggedin)
+{
   $date = date('Y-m-d');
   echo <<<_LOGGEDIN
   <a data-role='button' data-inline='true' data-icon='action'
@@ -88,9 +90,9 @@ _INIT;
   </p>
   <input type="submit" value="Удалить продукт">';
   
-  }
-  else
-  {
+}
+else
+{
 echo <<<_GUEST
           <div class='center'>
           <a data-role='button' data-inline='true' data-icon='check'
@@ -101,6 +103,5 @@ echo <<<_GUEST
           <p class='info'>(Вы должны войти в систему, чтобы использовать это приложение)</p>
   
 _GUEST;
-  }
-
+}
 ?>

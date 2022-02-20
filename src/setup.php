@@ -1,4 +1,4 @@
-<!DOCTYPE html> <!-- Example 03: setup.php -->
+<!DOCTYPE html>
 <html>
   <head>
     <title>Настройка базы данных</title>

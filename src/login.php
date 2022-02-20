@@ -1,4 +1,4 @@
-<?php // Example 07: login.php
+<?php
   require_once 'header.php';
   $error = $user = $pass = "";
 
