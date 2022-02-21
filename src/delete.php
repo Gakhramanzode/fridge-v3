@@ -10,7 +10,7 @@ $Name = $_POST['Name'];
 
 require_once 'loginDB.php';
 
-$conn = new mysqli($host, $user, $pass, $data);
+$conn = new mysqli($host, $username, $pass, $data);
 
 if ($conn->connect_error) {
     die ('Не удалось подключиться ' . $conn->connect_error);
