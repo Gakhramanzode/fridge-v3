@@ -36,7 +36,7 @@ if ($loggedin)
   _LOGGEDIN;
   require_once 'loginDB.php';
 
-  $db_server = mysqli_connect($host, $username, $pass, $data);
+  $db_server = mysqli_connect($host, $user, $pass, $data);
   if (!$db_server) die ("Невозможно подключиться ");
   
   $query = "SELECT Name,ExpirationDate from asker order by ExpirationDate";
