@@ -36,10 +36,10 @@ if ($loggedin)
   _LOGGEDIN;
   require_once 'loginDB.php';
 
-  $db_server = mysqli_connect($host, $user, $pass, $data);
+  $db_server = mysqli_connect($host, $username, $pass, $data);
   if (!$db_server) die ("Невозможно подключиться ");
   
-  $query = "SELECT Name,ExpirationDate from asker order by ExpirationDate";
+  $query = "SELECT Name,ExpirationDate from $user order by ExpirationDate";
 //   if (!$query) die ("Невозможно подключиться ");
   $result = mysqli_query($db_server, $query);
   if (!$result) die ("Невозможно подключиться ");
