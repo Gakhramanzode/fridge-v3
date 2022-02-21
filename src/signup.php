@@ -42,7 +42,8 @@ _END;
         $error = 'Это имя пользователя уже существует<br><br>';
       else
       {
-        queryMysql("INSERT INTO members VALUES('$user', '$pass')");
+        //queryMysql("INSERT INTO members VALUES('$user', '$pass')");
+        queryMysql("INSERT INTO `members` (`user`, `pass`, `id`) VALUES ('$user', '$pass', NULL)");
         die('<h4>Аккаунт создан</h4>Пожалуйста, войдите в систему.</div></body></html>');
       }
     }
