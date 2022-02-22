@@ -12,7 +12,6 @@ echo <<<_INIT
 _INIT;
 
 require_once 'functions.php';
-require_once 'loginDB.php';
 
 $userstr = 'Добро пожаловать';
 $randstr = substr(md5(rand()), 0, 7);
