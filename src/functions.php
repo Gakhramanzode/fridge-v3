@@ -1,7 +1,7 @@
 <?php
   $host = '31.31.196.165';    // Change as necessary
   $data = 'u1603907_publications';   // Change as necessary
-  $user = 'u1603907_default';   // Change as necessary
+  $username = 'u1603907_default';   // Change as necessary
   $pass = 'r11WsoLcvg6N7YsA';     // Change as necessary
   $chrs = 'utf8mb4';
   $attr = "mysql:host=$host;dbname=$data;charset=$chrs";
@@ -14,7 +14,7 @@
 
   try
   {
-    $pdo = new PDO($attr, $user, $pass, $opts);
+    $pdo = new PDO($attr, $username, $pass, $opts);
   }
   catch (PDOException $e)
   {
@@ -43,14 +43,14 @@
     session_destroy();
   }
 
-  function showProfile($user)
+  function showProfile($username)
   {
     global $pdo;
 
-    if (file_exists("$user.jpg"))
-      echo "<img src='$user.jpg' style='float:left;'>";
+    if (file_exists("$username.jpg"))
+      echo "<img src='$username.jpg' style='float:left;'>";
 
-    $result = $pdo->query("SELECT * FROM profiles WHERE user='$user'");
+    $result = $pdo->query("SELECT * FROM profiles WHERE user='$username'");
 
     while ($row = $result->fetch())
     {

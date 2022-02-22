@@ -1,19 +1,14 @@
 <?php
 
-echo "<title>Продукт успешно добавлен</title>";
+echo "<title>Добавление продукта</title>";
 
 $Name = $_POST['Name'];
 $ProductionDate = $_POST['ProductionDate'];
 $ExpirationDate = $_POST['ExpirationDate'];
 
-// $servername = 'localhost';
-// $username = 'root';
-// $password = '';
-// $database = 'publications';
-
 require_once 'loginDB.php';
 
-$conn = new mysqli($host, $user, $pass, $data);
+$conn = new mysqli($host, $username, $pass, $data);
 
 if ($conn->connect_error) {
     die ('Не удалось подключиться ' . $conn->connect_error);
