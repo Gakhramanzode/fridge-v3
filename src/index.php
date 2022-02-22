@@ -1,6 +1,5 @@
 <?php
   session_start();
-  require_once 'header.php';
 
   echo "
   <title>Вход</title>
@@ -19,4 +18,5 @@
 //   </body>
 // </html>
 // _END;
+require_once 'header.php';
 ?>

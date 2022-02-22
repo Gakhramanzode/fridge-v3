@@ -14,7 +14,7 @@ if ($conn->connect_error) {
     die ('Не удалось подключиться ' . $conn->connect_error);
 }
 
-$sql = "INSERT INTO asker(Name, ProductionDate, ExpirationDate) VALUES('$Name', '$ProductionDate', '$ExpirationDate')";
+$sql = "INSERT INTO admin (Name, ProductionDate, ExpirationDate) VALUES('$Name', '$ProductionDate', '$ExpirationDate')";
 
 if ($conn->query($sql) === TRUE) {
     echo "<p>Поздравляю! Продукт успешно добавлен в ваш список. Вернитесь назад, чтобы посмотреть обновленный список продуктов.</p>";

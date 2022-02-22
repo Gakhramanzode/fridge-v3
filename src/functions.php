@@ -3,7 +3,7 @@
   $data = 'u1603907_publications';   // Change as necessary
   $username = 'u1603907_default';   // Change as necessary
   $pass = 'r11WsoLcvg6N7YsA';     // Change as necessary
-  $chrs = 'utf8mb4';
+  $chrs = 'UTF8';
   $attr = "mysql:host=$host;dbname=$data;charset=$chrs";
   $opts =
   [
@@ -39,7 +39,6 @@
 
     if (session_id() != "" || isset($_COOKIE[session_name()]))
       setcookie(session_name(), '', time()-2592000, '/');
-
     session_destroy();
   }
 
