@@ -50,58 +50,52 @@ echo <<<_LOGGEDIN
 
 _LOGGEDIN;
 
-    $db_server = mysqli_connect($host, $username, $pass, $data);
-    if (!$db_server) die ("Невозможно подключиться ");
-        
-    $query = "SELECT Name,ExpirationDate from $user order by ExpirationDate";
+  $db_server = mysqli_connect($host, $username, $pass, $data);
+  if (!$db_server) die ("Невозможно подключиться ");
 
-    $result = mysqli_query($db_server, $query);
-    if (!$result) die ("Невозможно подключиться ");
+  $query = "SELECT Name,ExpirationDate from $user order by ExpirationDate";
+
+  $result = mysqli_query($db_server, $query);
+  if (!$result) die ("Невозможно подключиться ");
 
 echo <<<_LOGGEDIN
-    <h2>Ваш список продуктов</h2>
+        <h2>Ваш список продуктов</h2>
+
 _LOGGEDIN;
-    echo "<ol>\n";
-    while ($line = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-      echo "<li>\n";
-      foreach ($line as $col_value) {
-        echo "$col_value\t";
-      }
-      echo "</li>\n";
+
+  echo "<ol>\n";
+  while ($line = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+    echo "<li>\n";
+    foreach ($line as $col_value) {
+      echo "$col_value\t";
     }
-    echo "</ol>\n";
+    echo "</li>\n";
+  }
+  echo "</ol>\n";
 
 echo <<<_LOGGEDIN
-    <hr>
-      
-    <h2>Добавить продукт в список</h2>
-      
-    <form action="mysql.php?r=$randstr" method="post">
-    <p>
-      <label for="Name">Наименование продукта:</label>
-      <input type="text" name="Name">
-    </p>
+        <hr><h2>Добавить продукт в список</h2>      
+        <form action="mysql.php?r=$randstr" method="post">
+        <p>
+          <label for="Name">Наименование продукта:</label>
+          <input type="text" name="Name">
+        </p>
+        <p>
+          Выберите дату производства: <input type="date" name="ProductionDate">
+        </p>
+        <p>
+          Выберите дату окончания срока действия: <input type="date" name="ExpirationDate">
+        </p>
+          <input type="submit" value="Добавить продукт">
+        </form>
+        <hr><h2>Удалить продукт из списка</h2>
+        <form action="delete.php?r=$randstr" method="post">
+        <p>
+          <label for="Name">Наименование продукта:</label>
+          <input type="text" name="Name">
+        </p>
+        <input type="submit" value="Удалить продукт"><br><br> </body></head>
 
-    <p>
-      Выберите дату производства: <input type="date" name="ProductionDate">
-    </p>
-  
-    <p>
-      Выберите дату окончания срока действия: <input type="date" name="ExpirationDate">
-    </p>
-      <input type="submit" value="Добавить продукт">
-    </form>
-
-    <hr>
-
-    <h2>Удалить продукт из списка</h2>
-
-    <form action="delete.php?r=$randstr" method="post">
-    <p>
-      <label for="Name">Наименование продукта:</label>
-      <input type="text" name="Name">
-    </p>
-    <input type="submit" value="Удалить продукт"><br><br> </body></head>
 _LOGGEDIN;
   }
   else
