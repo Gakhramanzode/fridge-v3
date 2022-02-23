@@ -95,7 +95,7 @@ echo <<<_LOGGEDIN
       <p>
       <form action="delete.php?r=$randstr" method="post">
         <label for="Name">Наименование продукта: </label>
-        <select>
+        <select name="select">
         <option disabled selected>Выберите продукт</option>
 _LOGGEDIN;
 

@@ -52,7 +52,7 @@ echo <<<_LOGGEDIN
 
 _LOGGEDIN;
 
-$Name = $_POST['Name'];
+$Name = $_POST['select'];
 
 $conn = new mysqli($host, $username, $pass, $data);
 
