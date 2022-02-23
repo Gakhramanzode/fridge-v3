@@ -3,7 +3,7 @@
 
   if (isset($_SESSION['user']))
   {
-    destroySession();
+    session_destroy();
     echo "<br><div class='center'>Вы вышли из системы. Пожалуйста,
          <a data-transition='slide'
            href='index.php?r=$randstr'>нажмите здесь,</a>

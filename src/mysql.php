@@ -5,8 +5,8 @@ echo <<<_INIT
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 _INIT;
 
@@ -24,15 +24,16 @@ _INIT;
   else $loggedin = FALSE;
 
 echo <<<_MAIN
-<title>Добавление продукта: $userstr</title>
-</head>
-<body>
-<div data-role='page'>
-  <div data-role='header'>
-    <h1>Добавление продукта</h1>
-    <div class='username'>$userstr</div>
-  </div>
-  <div data-role='content'>
+    <title>Добавление продукта: $userstr</title>
+  </head>
+  <body>
+    <div data-role="page">
+      <div data-role="header">
+        <h1>Добавление продукта</h1>
+      </div>
+      <div class="username">$userstr</div>
+    </div>
+    <div data-role="content">
 
 _MAIN;
 
@@ -40,13 +41,14 @@ if ($loggedin)
 {
 $date = date('Y-m-d');
 echo <<<_LOGGEDIN
-
-      <div class='center'>
-      <a data-role='button' data-inline='true' data-icon='action'
-        data-transition="slide" href='logout.php?r=$randstr'>Выйти</a>
+    <div class="center">
+      <a data-role="button" data-inline="true" data-icon="action"
+        data-transition="slide" href="logout.php?r=$randstr">Выйти</a>
       </div>
-
-Сегодняшняя дата: $date
+    </div>
+    <p>
+      Сегодняшняя дата: $date
+    </p>
 
 _LOGGEDIN;
 
@@ -62,11 +64,14 @@ if ($conn->connect_error) {
 
 $sql = "INSERT INTO $user (Name, ProductionDate, ExpirationDate) VALUES('$Name', '$ProductionDate', '$ExpirationDate')";
 if ($conn->query($sql) === TRUE) {
-    echo "<p>Поздравляю! Продукт успешно добавлен в ваш список. Вернитесь назад, чтобы посмотреть обновленный список продуктов.</p>";
+    echo "\t<p>\n\t\tПоздравляю! Продукт успешно добавлен в ваш список. Вернитесь назад, чтобы посмотреть обновленный список продуктов.\n\t</p>\n\t<a href='header.php?r=$randstr''>Вернуться назад</a>
+  </body>
+</html>";
     // header('Location: /www/fridge-asker.site/header.php');
-    echo "<a href='header.php?r=$randstr''>Вернуться назад</a></body></head>";
-} else {
-    echo "К сожалению, произошла ошибка: " . $sql. "<br></body></head>" . $conn->error;
+  } else {
+    echo "К сожалению, произошла ошибка: " . $sql. "<br>
+  </body>
+</html>" . $conn->error;
 }
 
 $conn->close();
@@ -74,14 +79,14 @@ $conn->close();
   else
   {
 echo <<<_GUEST
-          <div class='center'>
-          <a data-role='button' data-inline='true' data-icon='check'
-          data-transition="slide" href='login.php?r=$randstr''>Войти</a>
-            <a data-role='button' data-inline='true' data-icon='plus'
-              data-transition="slide" href='signup.php?r=$randstr''>Регистрация</a>
-          </div>
-          <p class='info'>(Вы должны войти в систему, чтобы использовать это приложение)</p>
+      <div class="center">
+        <a data-role="button" data-inline="true" data-icon="check"
+        data-transition="slide" href="login.php?r=$randstr">Войти</a>
+        <a data-role="button" data-inline="true" data-icon="plus"
+        data-transition="slide" href="signup.php?r=$randstr">Регистрация</a>
+      </div>
+      <p class="info">(Вы должны войти в систему, чтобы использовать это приложение)</p>
 
 _GUEST;
-  }
+}
 ?>
