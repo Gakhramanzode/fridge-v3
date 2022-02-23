@@ -42,14 +42,14 @@
     session_destroy();
   }
 
-  function showProfile($username)
+  function showProfile($user)
   {
     global $pdo;
 
-    if (file_exists("$username.jpg"))
-      echo "<img src='$username.jpg' style='float:left;'>";
+    if (file_exists("$user.jpg"))
+      echo "<img src='$user.jpg' style='float:left;'>";
 
-    $result = $pdo->query("SELECT * FROM profiles WHERE user='$username'");
+    $result = $pdo->query("SELECT * FROM profiles WHERE user='$user'");
 
     while ($row = $result->fetch())
     {
@@ -58,5 +58,4 @@
 
     echo "<p>Здесь пока не на что смотреть</p><br>";
   }
-
 ?>
