@@ -1,9 +1,9 @@
 <?php
-  $host = '31.31.196.165';    // Change as necessary
-  $data = 'u1603907_publications';   // Change as necessary
-  $username = 'u1603907_default';   // Change as necessary
-  $pass = 'r11WsoLcvg6N7YsA';     // Change as necessary
-  $chrs = 'UTF8';
+  $host = '31.31.196.165';
+  $data = 'u1603907_publications';
+  $username = 'u1603907_default';
+  $pass = 'r11WsoLcvg6N7YsA';
+  $chrs = 'utf8mb4';
   $attr = "mysql:host=$host;dbname=$data;charset=$chrs";
   $opts =
   [

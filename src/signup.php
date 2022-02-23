@@ -42,7 +42,6 @@ _END;
         $error = 'Это имя пользователя уже существует<br><br>';
       else
       {
-        //queryMysql("INSERT INTO members VALUES('$user', '$pass')");
         queryMysql("INSERT INTO `members` (`user`, `pass`, `id`) VALUES ('$user', '$pass', NULL)");
         queryMysql("CREATE TABLE `u1603907_publications`.$user (
           `id` int(10) UNSIGNED NOT NULL,
