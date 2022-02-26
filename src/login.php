@@ -4,7 +4,7 @@
 
   if (isset($_POST['user']))
   {
-    $user = $_POST['user'];
+    $user = strtolower($_POST['user']);
     $pass = $_POST['pass'];
 
     if ($user == "" || $pass == "")
