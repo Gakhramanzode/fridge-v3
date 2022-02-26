@@ -30,7 +30,7 @@ _END;
   if (isset($_POST['user']))
   {
     $user = strtolower($_POST['user']);
-    $pass = $_POST['pass'];
+    $pass = strtolower($_POST['pass']);
 
     if ($user == "" || $pass == "")
       $error = 'Не все поля были введены<br><br>';
