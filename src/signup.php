@@ -61,14 +61,14 @@ echo <<<_END
         Пожалуйста, введите свои данные для регистрации
       </div>
       <div data-role='fieldcontain'>
-        <label>Имя пользователя (используете латинский алфавит)</label>
-        <input type='text' maxlength='16' name='user' value='$user'
-          onBlur='checkUser(this)' required pattern='^[a-zA-Z]+$'>
+        <label>Имя пользователя</label>
+        <input type='text' maxlength='13' name='user' value='$user'
+          onBlur='checkUser(this)' required pattern='^[a-zA-Z]+$' placeholder='Латинские буквы' size='13'>
         <label></label><div id='used'>&nbsp;</div>
       </div>
       <div data-role='fieldcontain'>
-        <label>Пароль (пароль должен содержать не менее восьми знаков, включать буквы, цифры и специальные символы)</label>
-        <input type='text' minlength='8' maxlength='16' name='pass' value='$pass' required pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$'>
+        <label>Пароль</label>
+        <input type='text' minlength='8' maxlength='16' name='pass' value='$pass' required pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$' placeholder='Не менее 8 знаков, буквы, цифры, спец символы' size='43'>
       </div>
       <div data-role='fieldcontain'>
         <label></label>
