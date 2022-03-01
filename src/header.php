@@ -43,40 +43,51 @@ _MAIN;
   if ($loggedin)
   {
   $date = date('Y-m-d');
-echo <<<_LOGGEDIN
-    <div class="center">
-      <a data-role='button' data-inline='true' data-icon='action'
-        data-transition="slide" href='logout.php?r=$randstr'>Выйти</a>
+
+  echo <<<_LOGGEDIN
+      <div class="center">
+        <a data-role='button' data-inline='true' data-icon='action'
+          data-transition="slide" href='logout.php?r=$randstr'>Выйти</a>
+        </div>
       </div>
-    </div>
-    <p>
-      Сегодняшняя дата: $date
-    </p>
+      <p>
+        Сегодняшняя дата: $date
+      </p>
 
 _LOGGEDIN;
 
   $db_server = mysqli_connect($host, $username, $pass, $data);
   if (!$db_server) die ("Невозможно подключиться ");
 
-  $query = "SELECT Name,ExpirationDate from $user order by ExpirationDate";
-
-  $result = mysqli_query($db_server, $query);
-  if (!$result) die ("Невозможно подключиться ");
-
 echo <<<_LOGGEDIN
     <h2>Ваш список продуктов</h2>
 
 _LOGGEDIN;
 
-  echo "\t\t<ol>\n";
-  while ($line = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-    echo "\t\t\t<li>";
-    foreach ($line as $col_value) {
-      echo "$col_value ";
+  $a = mysqli_query($db_server, "SELECT COUNT(1) FROM $user");
+  $b = mysqli_fetch_array( $a );
+
+  if ($b[0] == 0)
+  {
+    echo "      <p>Здесь пока пусто 🔍</p>\n";
+  }
+  else
+  {
+    $query = "SELECT Name,ExpirationDate from $user order by ExpirationDate";
+
+    $result = mysqli_query($db_server, $query);
+    if (!$result) die ("Невозможно подключиться ");
+
+    echo "\t\t<ol>\n";
+    while ($line = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+      echo "\t\t\t<li>";
+      foreach ($line as $col_value) {
+        echo "$col_value ";
+      };
+      echo "</li>\n";
     };
-    echo "</li>\n";
+    echo "\t\t</ol>\n";
   };
-  echo "\t\t</ol>\n";
 
 echo <<<_LOGGEDIN
     <hr>
