@@ -63,7 +63,7 @@ echo <<<_END
       <div data-role='fieldcontain'>
         <label>Имя пользователя</label>
         <input type='text' maxlength='13' name='user' value='$user'
-          onBlur='checkUser(this)' required pattern='^[a-zA-Z]+$' placeholder='Латинские буквы' size='13'>
+          onBlur='checkUser(this)' required pattern='^[a-zA-Z]+$' placeholder='Латинские буквы' size='15'>
         <label></label><div id='used'>&nbsp;</div>
       </div>
       <div data-role='fieldcontain'>
