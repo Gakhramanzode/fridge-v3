@@ -47,7 +47,8 @@ _END;
           `id` int(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
           `Name` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
           `ProductionDate` date DEFAULT NULL,
-          `ExpirationDate` date DEFAULT NULL
+          `ExpirationDate` date DEFAULT NULL,
+          `type` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
         ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4");
         die('<h4>Аккаунт создан</h4>Пожалуйста, войдите в систему.</div></body></html>');
       }
