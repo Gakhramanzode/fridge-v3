@@ -73,12 +73,8 @@ _LOGGEDIN;
   }
   else
   {
-<<<<<<< HEAD
     $query = "SELECT Name, ExpirationDate from $user order by ExpirationDate";
     $db_server->set_charset('utf8');
-=======
-    $query = "SELECT Name, type, ExpirationDate from $user order by ExpirationDate";
->>>>>>> e305a007fc234bfc9212b1d4fcf79240838d2ae7
 
     $result = mysqli_query($db_server, $query);
     if (!$result) die ("Невозможно подключиться ");
@@ -138,9 +134,10 @@ _LOGGEDIN;
   if (!$db_server) die ("Невозможно подключиться ");
 
   $query = "SELECT Name from $user order by ExpirationDate";
+  $db_server->set_charset('utf8');
 
   $result = mysqli_query($db_server, $query);
-  $db_server->set_charset('utf8');
+  
   if (!$result) die ("Невозможно подключиться ");
 
   while ($line = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
