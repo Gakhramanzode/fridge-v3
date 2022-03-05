@@ -47,7 +47,8 @@ _END;
           `id` int(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
           `Name` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
           `ProductionDate` date DEFAULT NULL,
-          `ExpirationDate` date DEFAULT NULL
+          `ExpirationDate` date DEFAULT NULL,
+          `type` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
         ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4");
         die('<h4>Аккаунт создан</h4>Пожалуйста, войдите в систему.</div></body></html>');
       }
@@ -63,7 +64,7 @@ echo <<<_END
       <div data-role='fieldcontain'>
         <label>Имя пользователя</label>
         <input type='text' maxlength='13' name='user' value='$user'
-          onBlur='checkUser(this)' required pattern='^[a-zA-Z]+$' placeholder='Латинские буквы' size='13'>
+          onBlur='checkUser(this)' required pattern='^[a-zA-Z]+$' placeholder='Латинские буквы' size='15'>
         <label></label><div id='used'>&nbsp;</div>
       </div>
       <div data-role='fieldcontain'>

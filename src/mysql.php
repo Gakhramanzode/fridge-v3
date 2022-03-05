@@ -67,6 +67,7 @@ if ($conn->connect_error) {
 }
 
 $sql = "INSERT INTO $user (Name, ProductionDate, ExpirationDate) VALUES('$Name', '$ProductionDate', '$ExpirationDate')";
+$conn->set_charset('utf8');
 if ($conn->query($sql) === TRUE) {
     echo "\t<p>\n\t\tПоздравляю! Продукт успешно добавлен в ваш список. Вернитесь назад, чтобы посмотреть обновленный список продуктов.\n\t</p>\n\t<a href='header.php?r=$randstr''>Вернуться назад</a>
   </body>

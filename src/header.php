@@ -73,7 +73,8 @@ _LOGGEDIN;
   }
   else
   {
-    $query = "SELECT Name,ExpirationDate from $user order by ExpirationDate";
+    $query = "SELECT Name, ExpirationDate from $user order by ExpirationDate";
+    $db_server->set_charset('utf8');
 
     $result = mysqli_query($db_server, $query);
     if (!$result) die ("Невозможно подключиться ");
@@ -96,6 +97,21 @@ echo <<<_LOGGEDIN
       <form action="mysql.php?r=$randstr" method="post">
         <label for="Name">Наименование продукта:</label>
         <input type="text" name="Name">
+        <label for="Name">Тип продукта:</label>
+        <select name="select">
+          <option value='🥓'>🥓  Завтрак</option>"
+          <option value='🍜'>🍜  Обед</option>"
+          <option value='🍝'>🍝  Ужин</option>"
+          <option value='🥗'>🥗 Салаты</option>"
+          <option value='🌰'>🌰  Перекусить</option>"
+          <option value='🍫'>🍫  Сладкое</option>"
+          <option value='☕️'>☕️  К чаю</option>"
+          <option value='🥤'>🥤 Напиток</option>"
+          <option value='🥩'>🥩 Мясо</option>"
+          <option value='🥒'>🥒 Овощи</option>"
+          <option value='🍞'>🍞 Хлеб</option>"
+          <option value='🥣'>🥣  Другое</option>"
+        </select>
       </p>
       <p>
         Выберите дату производства: <input type="date" name="ProductionDate">
@@ -120,6 +136,7 @@ _LOGGEDIN;
   $query = "SELECT Name from $user order by ExpirationDate";
 
   $result = mysqli_query($db_server, $query);
+  $db_server->set_charset('utf8');
   if (!$result) die ("Невозможно подключиться ");
 
   while ($line = mysqli_fetch_array($result, MYSQLI_ASSOC)) {

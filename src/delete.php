@@ -65,6 +65,7 @@ if ($conn->connect_error) {
 }
 
 $sql = "DELETE FROM $user WHERE Name = '$Name'";
+$conn->set_charset('utf8');
 if ($conn->query($sql) === TRUE) {
     echo "\t<p>\n\t\tПоздравляю! Продукт успешно удален из вашего списка. Вернитесь назад, чтобы посмотреть обновленный список продуктов.\n\t</p>\n\t<a href='header.php?r=$randstr''>Вернуться назад</a>
   </body>
