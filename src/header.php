@@ -99,18 +99,7 @@ echo <<<_LOGGEDIN
         <input type="text" name="Name">
         <label for="Name">Тип продукта:</label>
         <select name="select">
-          <option value='🥓'>🥓  Завтрак</option>"
-          <option value='🍜'>🍜  Обед</option>"
-          <option value='🍝'>🍝  Ужин</option>"
-          <option value='🥗'>🥗 Салаты</option>"
-          <option value='🌰'>🌰  Перекусить</option>"
-          <option value='🍫'>🍫  Сладкое</option>"
           <option value='☕️'>☕️  К чаю</option>"
-          <option value='🥤'>🥤 Напиток</option>"
-          <option value='🥩'>🥩 Мясо</option>"
-          <option value='🥒'>🥒 Овощи</option>"
-          <option value='🍞'>🍞 Хлеб</option>"
-          <option value='🥣'>🥣  Другое</option>"
         </select>
       </p>
       <p>
