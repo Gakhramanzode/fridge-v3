@@ -31,13 +31,8 @@ echo <<<_MAIN
     <title>Удаление продукта: $userstr</title>
   </head>
   <body>
-    <div data-role="page">
-      <div data-role="header">
-        <h1>Удаление продукта</h1>
-      </div>
-      <div class="username">$userstr</div>
-    </div>
-    <div data-role="content">
+      <h1>Список моих продуктов</h1>
+      $userstr
 
 _MAIN;
 
@@ -45,14 +40,18 @@ if ($loggedin)
 {
 $date = date('Y-m-d');
 echo <<<_LOGGEDIN
-    <div class="center">
-      <a data-role="button" data-inline="true" data-icon="action"
-        data-transition="slide" href="logout.php?r=$randstr">Выйти</a>
-      </div>
-    </div>
+    <p>
+      <a data-role='button' data-inline='true' data-icon='action'
+      data-transition="slide" href='header.php?r=$randstr'>Список продуктов</a>
+      <a data-role='button' data-inline='true' data-icon='action'
+      data-transition="slide" href='addproduct.php?r=$randstr'>Добавить продукт</a>
+      <a data-role='button' data-inline='true' data-icon='action'
+      data-transition="slide" href='logout.php?r=$randstr'>Выйти</a>
+    </p>
     <p>
       Сегодняшняя дата: $date
     </p>
+    <hr>
 
 _LOGGEDIN;
 
@@ -82,13 +81,15 @@ $conn->close();
   else
   {
 echo <<<_GUEST
-      <div class="center">
+      <p>
         <a data-role="button" data-inline="true" data-icon="check"
         data-transition="slide" href="login.php?r=$randstr">Войти</a>
         <a data-role="button" data-inline="true" data-icon="plus"
         data-transition="slide" href="signup.php?r=$randstr">Регистрация</a>
-      </div>
-      <p class="info">(Вы должны войти в систему, чтобы использовать это приложение)</p>
+      </p>
+      <p>
+        (Вы должны войти в систему, чтобы использовать это приложение)
+      </p>
 
 _GUEST;
   }

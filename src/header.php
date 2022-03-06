@@ -31,12 +31,8 @@ echo <<<_MAIN
     <title>Список моих продуктов: $userstr</title>
   </head>
   <body>
-    <div data-role="page">
-      <div data-role="header">
       <h1>Список моих продуктов</h1></div>
-      <div class="username">$userstr</div>
-    </div>
-    <div data-role="content">
+      $userstr
 
 _MAIN;
   
@@ -44,18 +40,15 @@ _MAIN;
   {
   $date = date('Y-m-d');
 
-  echo <<<_LOGGEDIN
-      <div class="center">
+echo <<<_LOGGEDIN
+      <p>
         <a data-role='button' data-inline='true' data-icon='action'
           data-transition="slide" href='addproduct.php?r=$randstr'>Добавить продукт</a>
-        </div>
         <a data-role='button' data-inline='true' data-icon='action'
           data-transition="slide" href='deleteproduct.php?r=$randstr'>Удалить продукт</a>
-        </div>
         <a data-role='button' data-inline='true' data-icon='action'
           data-transition="slide" href='logout.php?r=$randstr'>Выйти</a>
-        </div>
-      </div>
+      </p>    
       <p>
         Сегодняшняя дата: $date
       </p>
@@ -66,6 +59,7 @@ _LOGGEDIN;
   if (!$db_server) die ("Невозможно подключиться ");
 
 echo <<<_LOGGEDIN
+    <hr>
     <h2>Ваш список продуктов</h2>
 
 _LOGGEDIN;
@@ -99,13 +93,15 @@ _LOGGEDIN;
   else
   {
 echo <<<_GUEST
-      <div class="center">
+      <p>
         <a data-role="button" data-inline="true" data-icon="check"
         data-transition="slide" href="login.php?r=$randstr">Войти</a>
         <a data-role="button" data-inline="true" data-icon="plus"
         data-transition="slide" href="signup.php?r=$randstr">Регистрация</a>
-      </div>
-      <p class="info">(Вы должны войти в систему, чтобы использовать это приложение)</p>
+      </p>
+      <p>
+        (Вы должны войти в систему, чтобы использовать это приложение)
+      </p>
 
 _GUEST;
   }

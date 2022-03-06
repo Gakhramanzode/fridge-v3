@@ -31,12 +31,8 @@ echo <<<_MAIN
     <title>Удаление продукта: $userstr</title>
   </head>
   <body>
-    <div data-role="page">
-      <div data-role="header">
-      <h1>Удаление продукта из списка</h1></div>
-      <div class="username">$userstr</div>
-    </div>
-    <div data-role="content">
+    <h1>Список моих продуктов</h1></div>
+    $userstr
 
 _MAIN;
   
@@ -45,17 +41,14 @@ _MAIN;
   $date = date('Y-m-d');
 
 echo <<<_LOGGEDIN
-    <div class="center">
+    <p>
         <a data-role='button' data-inline='true' data-icon='action'
           data-transition="slide" href='header.php?r=$randstr'>Список продуктов</a>
-        </div>
         <a data-role='button' data-inline='true' data-icon='action'
           data-transition="slide" href='addproduct.php?r=$randstr'>Добавить продукт</a>
-        </div>
         <a data-role='button' data-inline='true' data-icon='action'
           data-transition="slide" href='logout.php?r=$randstr'>Выйти</a>
-        </div>
-    </div>
+    </p>
     <p>
         Сегодняшняя дата: $date
     </p>
