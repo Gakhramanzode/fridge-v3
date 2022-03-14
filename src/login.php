@@ -32,28 +32,20 @@
 
 echo <<<_END
       <form method='post' action='login.php?r=$randstr'>
-        <div data-role='fieldcontain'>
-          <label></label>
           <span class='error'>$error</span>
-        </div>
-        <div data-role='fieldcontain'>
-          <label></label>
+        <p>
           Пожалуйста, введите свои данные для входа в систему
-        </div>
-        <div data-role='fieldcontain'>
-          <label>Имя пользователя</label>
+        </p>
+        <p>
+          Имя пользователя
           <input type='text' maxlength='16' name='user' value='$user'>
-        </div>
-        <div data-role='fieldcontain'>
-          <label>Пароль</label>
+        </p>
+        <p>
+          Пароль
           <input type='password' maxlength='16' name='pass' value='$pass'>
-        </div>
-        <div data-role='fieldcontain'>
-          <label></label>
+        </p>
           <input data-transition='slide' type='submit' value='Войти'>
-        </div>
       </form>
-    </div>
   </body>
 </html>
 _END;

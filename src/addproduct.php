@@ -16,14 +16,12 @@ _INIT;
 
   require_once 'functions.php';
 
-  $userstr = 'Добро пожаловать гость';
   $randstr = substr(md5(rand()), 0, 7);
 
   if (isset($_SESSION['user']))
   {
     $user     = $_SESSION['user'];
     $loggedin = TRUE;
-    $userstr  = "Профиль: $user";
   }
   else $loggedin = FALSE;
 
@@ -90,9 +88,6 @@ echo <<<_GUEST
         data-transition="slide" href="login.php?r=$randstr">Войти</a>
         <a data-role="button" data-inline="true" data-icon="plus"
         data-transition="slide" href="signup.php?r=$randstr">Регистрация</a>
-      </p>
-      <p>
-        (Вы должны войти в систему, чтобы использовать это приложение)
       </p>
 
 _GUEST;

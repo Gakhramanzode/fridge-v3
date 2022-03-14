@@ -57,25 +57,19 @@ _END;
 
 echo <<<_END
       <form method='post' action='signup.php?r=$randstr'>$error
-      <div data-role='fieldcontain'>
-        <label></label>
-        Пожалуйста, введите свои данные для регистрации
-      </div>
-      <div data-role='fieldcontain'>
-        <label>Имя пользователя</label>
+        <p>
+          Пожалуйста, введите свои данные для регистрации
+        </p>
+        <p>
+          Имя пользователя
         <input type='text' maxlength='13' name='user' value='$user'
           onBlur='checkUser(this)' required pattern='^[a-zA-Z]+$' placeholder='Латинские буквы' size='15'>
-        <label></label><div id='used'>&nbsp;</div>
-      </div>
-      <div data-role='fieldcontain'>
-        <label>Пароль</label>
+        </p>
+        <p>
+          Пароль
         <input type='text' minlength='8' maxlength='16' name='pass' value='$pass' required pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$' placeholder='Не менее 8 знаков, буквы, цифры, спец символы' size='43'>
-      </div>
-      <div data-role='fieldcontain'>
-        <label></label>
+        </p>
         <input data-transition='slide' type='submit' value='Зарегистрироваться'>
-      </div>
-    </div>
   </body>
 </html>
 _END;

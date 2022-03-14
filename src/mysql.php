@@ -16,14 +16,12 @@ _INIT;
 
   require_once 'functions.php';
 
-  $userstr = 'Добро пожаловать гость';
   $randstr = substr(md5(rand()), 0, 7);
 
   if (isset($_SESSION['user']))
   {
     $user     = $_SESSION['user'];
     $loggedin = TRUE;
-    $userstr  = "Профиль: $user";
   }
   else $loggedin = FALSE;
 
