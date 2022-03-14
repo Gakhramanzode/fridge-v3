@@ -25,7 +25,7 @@
         die("<div class='center'>Теперь вы вошли в систему. Пожалуйста,
              <a data-transition='slide'
                href='header.php?view=$user&r=$randstr'>нажмите здесь,</a>
-               чтобы продолжить.</div></div></body></html>");
+               чтобы продолжить. <br><br> <img src='img/WorldArt-256px-7.gif' alt='Фотография' width='128' height='128'> </div></div></body></html>");
       }
     }
   }

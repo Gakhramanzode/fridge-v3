@@ -67,7 +67,7 @@ if ($conn->connect_error) {
 $sql = "INSERT INTO $user (Name, ProductionDate, ExpirationDate, type) VALUES('$Name', '$ProductionDate', '$ExpirationDate', '$type')";
 $conn->set_charset('utf8');
 if ($conn->query($sql) === TRUE) {
-    echo "\t<p>\n\t\tПоздравляю! Продукт успешно добавлен в ваш список. Вернитесь назад, чтобы посмотреть обновленный список продуктов.\n\t</p>\n\t<a href='header.php?r=$randstr''>Вернуться назад</a>
+    echo "\t<p>\n\t\t👌 Продукт успешно добавлен в ваш список. Вернитесь назад, чтобы посмотреть обновленный список продуктов.\n\t</p>\n\t<a href='header.php?r=$randstr''>Вернуться назад</a><br><br> <img src='img/PeopleMemes-256px-2.gif' alt='Фотография' width='128' height='128'>
   </body>
 </html>";
     // header('Location: /www/fridge-asker.site/header.php');
