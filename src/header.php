@@ -57,8 +57,8 @@ _LOGGEDIN;
   if (!$db_server) die ("Невозможно подключиться ");
 
 echo <<<_LOGGEDIN
-    <hr>
-    <h2>Ваш список продуктов</h2>
+      <hr>
+      <h2>Ваш список продуктов</h2>
 
 _LOGGEDIN;
 
@@ -66,27 +66,33 @@ _LOGGEDIN;
   $b = mysqli_fetch_array( $a );
 
   if ($b[0] == 0)
-  {
-    echo "      <p>Здесь пока пусто 🔍</p>\n";
-  }
+      {
+        echo "      <p>Здесь пока пусто 🔍</p>\n";
+      }
   else
-  {
-    $query = "SELECT Name, ExpirationDate from $user order by ExpirationDate";
-    $db_server->set_charset('utf8');
+      {
+        $query = "SELECT Name, ExpirationDate from $user order by ExpirationDate";
+        $db_server->set_charset('utf8');
+    
+        $result = mysqli_query($db_server, $query);
+        if (!$result) die ("Невозможно подключиться ");
+    
+        echo "\t\t<ol>\n";
+        while ($line = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+          echo "\t\t\t<li>";
+          foreach ($line as $col_value) {
+            echo "$col_value ";
+          };
+          echo "</li>\n";
+        };
+        echo "\t\t</ol>\n";
+      }
 
-    $result = mysqli_query($db_server, $query);
-    if (!$result) die ("Невозможно подключиться ");
-
-    echo "\t\t<ol>\n";
-    while ($line = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-      echo "\t\t\t<li>";
-      foreach ($line as $col_value) {
-        echo "$col_value ";
-      };
-      echo "</li>\n";
-    };
-    echo "\t\t</ol>\n";
-  };
+echo <<<_LOGGEDIN
+      <img src="img/BoysClub-256px-19.gif" alt="Фотография" width="128" height="128">
+    </body>
+</html>
+_LOGGEDIN;
   }
   else
   {
