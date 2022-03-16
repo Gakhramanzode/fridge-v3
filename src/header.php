@@ -89,7 +89,7 @@ _LOGGEDIN;
       }
 
 echo <<<_LOGGEDIN
-      <img src="img/BoysClub-256px-19.gif" alt="Фотография" width="128" height="128">
+      <img src="img/BoysClub-256px-19.gif" alt="Фотография" width="128" height="128"><br>
     </body>
 </html>
 _LOGGEDIN;
