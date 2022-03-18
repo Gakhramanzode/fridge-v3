@@ -26,11 +26,10 @@ _INIT;
   else $loggedin = FALSE;
 
 echo <<<_MAIN
-    <title>Список моих продуктов: $userstr</title>
+    <title>Список моих продуктов: $user</title>
   </head>
   <body>
       <h1>Список моих продуктов</h1></div>
-      $userstr
 
 _MAIN;
   
@@ -44,6 +43,8 @@ echo <<<_LOGGEDIN
           data-transition="slide" href='addproduct.php?r=$randstr'>Добавить продукт</a>
         <a data-role='button' data-inline='true' data-icon='action'
           data-transition="slide" href='deleteproduct.php?r=$randstr'>Удалить продукт</a>
+        <a data-role='button' data-inline='true' data-icon='action'
+          data-transition="slide" href='telegram.php?r=$randstr'>Телеграм-бот</a>
         <a data-role='button' data-inline='true' data-icon='action'
           data-transition="slide" href='logout.php?r=$randstr'>Выйти</a>
       </p>    
