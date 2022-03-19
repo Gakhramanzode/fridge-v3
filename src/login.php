@@ -8,11 +8,10 @@
     $pass = strtolower($_POST['pass']);
 
     if ($user == "" || $pass == "")
-      $error = 'Не все поля были введены';
+      $error = '<strong color=>Не все поля были введены</strong>';
     else
     {
-      $result = queryMySQL("SELECT user,pass FROM members
-        WHERE user='$user' AND pass='$pass'");
+      $result = queryMySQL("SELECT user,pass FROM members WHERE user='$user' AND pass='$pass'");
 
       if ($result->rowCount() == 0)
       {
@@ -36,14 +35,15 @@ echo <<<_END
         <p>
           Пожалуйста, введите свои данные для входа в систему
         </p>
-        <p>
-          Имя пользователя
+        <div>
+          <label for="Name">Имя пользователя</label>
           <input type='text' maxlength='16' name='user' value='$user'>
-        </p>
-        <p>
-          Пароль
+        </div>
+        
+        <div>
+          <label for="Password">Пароль</label>
           <input type='password' maxlength='16' name='pass' value='$pass'>
-        </p>
+        </div>
           <input data-transition='slide' type='submit' value='Войти'>
       </form>
   </body>

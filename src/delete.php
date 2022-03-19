@@ -7,6 +7,7 @@ echo <<<_INIT
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -40,16 +41,18 @@ $date = date('Y-m-d');
 echo <<<_LOGGEDIN
     <p>
       <a data-role='button' data-inline='true' data-icon='action'
-      data-transition="slide" href='header.php?r=$randstr'>Список продуктов</a>
+        data-transition="slide" href='header.php?r=$randstr'>Список продуктов</a>
       <a data-role='button' data-inline='true' data-icon='action'
-      data-transition="slide" href='addproduct.php?r=$randstr'>Добавить продукт</a>
+        data-transition="slide" href='addproduct.php?r=$randstr'>Добавить продукт</a>
       <a data-role='button' data-inline='true' data-icon='action'
-      data-transition="slide" href='logout.php?r=$randstr'>Выйти</a>
+        data-transition="slide" href='telegram.php?r=$randstr'>Телеграм-бот</a>
+      <a data-role='button' data-inline='true' data-icon='action'
+        data-transition="slide" href='logout.php?r=$randstr'>Выйти</a>
     </p>
     <p>
       Сегодняшняя дата: $date
     </p>
-    <hr>
+    <hr color="#db944e">
 
 _LOGGEDIN;
 

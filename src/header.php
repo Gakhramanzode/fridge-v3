@@ -9,6 +9,7 @@ echo <<<_INIT
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywors" content="список продуктов">
     <meta name="description" content="Сервис, который умеет (еще учится) хранить список продуктов">
+    <link rel="stylesheet" href="style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -31,7 +32,8 @@ echo <<<_MAIN
     <title>Список моих продуктов: $user</title>
   </head>
   <body>
-      <h1>Список моих продуктов</h1></div>
+      <div class="container">
+        <h1>Список моих продуктов</h1>
 
 _MAIN;
   
@@ -40,19 +42,19 @@ _MAIN;
   $date = date('Y-m-d');
 
 echo <<<_LOGGEDIN
-      <p>
-        <a data-role='button' data-inline='true' data-icon='action'
-          data-transition="slide" href='addproduct.php?r=$randstr'>Добавить продукт</a>
-        <a data-role='button' data-inline='true' data-icon='action'
-          data-transition="slide" href='deleteproduct.php?r=$randstr'>Удалить продукт</a>
-        <a data-role='button' data-inline='true' data-icon='action'
-          data-transition="slide" href='telegram.php?r=$randstr'>Телеграм-бот</a>
-        <a data-role='button' data-inline='true' data-icon='action'
-          data-transition="slide" href='logout.php?r=$randstr'>Выйти</a>
-      </p>    
-      <p>
-        Сегодняшняя дата: $date
-      </p>
+        <p>
+          <a data-role='button' data-inline='true' data-icon='action'
+            data-transition="slide" href='addproduct.php?r=$randstr'>Добавить продукт</a>
+          <a data-role='button' data-inline='true' data-icon='action'
+            data-transition="slide" href='deleteproduct.php?r=$randstr'>Удалить продукт</a>
+          <a data-role='button' data-inline='true' data-icon='action'
+            data-transition="slide" href='telegram.php?r=$randstr'>Телеграм-бот</a>
+          <a data-role='button' data-inline='true' data-icon='action'
+            data-transition="slide" href='logout.php?r=$randstr'>Выйти</a>
+        </p>    
+        <p>
+          Сегодняшняя дата: $date
+        </p>
 
 _LOGGEDIN;
 
@@ -60,8 +62,8 @@ _LOGGEDIN;
   if (!$db_server) die ("Невозможно подключиться ");
 
 echo <<<_LOGGEDIN
-      <hr>
-      <h2>Ваш список продуктов</h2>
+        <hr color="#db944e">
+        <h2>Ваш список продуктов</h2>
 
 _LOGGEDIN;
 
@@ -70,7 +72,7 @@ _LOGGEDIN;
 
   if ($b[0] == 0)
       {
-        echo "      <p>Здесь пока пусто 🔍</p>\n";
+        echo "\t\t\t<p>Здесь пока пусто 🔍</p>\n";
       }
   else
       {
@@ -80,19 +82,20 @@ _LOGGEDIN;
         $result = mysqli_query($db_server, $query);
         if (!$result) die ("Невозможно подключиться ");
     
-        echo "\t\t<ol>\n";
+        echo "\t\t\t<ol>\n";
         while ($line = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-          echo "\t\t\t<li>";
+          echo "\t\t\t\t<li>";
           foreach ($line as $col_value) {
             echo "$col_value ";
           };
           echo "</li>\n";
         };
-        echo "\t\t</ol>\n";
+        echo "\t\t\t</ol>\n";
       }
 
 echo <<<_LOGGEDIN
-      <img src="img/BoysClub-256px-19.gif" alt="Фотография" width="128" height="128"><br>
+        <img src="img/BoysClub-256px-19.gif" alt="Фотография" width="128" height="128"><br>
+      </div>
     </body>
 </html>
 _LOGGEDIN;

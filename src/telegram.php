@@ -7,6 +7,7 @@ echo <<<_INIT
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -58,7 +59,7 @@ _LOGGEDIN;
   if (!$db_server) die ("Невозможно подключиться ");
 
 echo <<<_LOGGEDIN
-    <hr>
+    <hr color="#db944e">
     <h2>Подлючиться к телеграм-боту</h2>
       <p>
       <form action="turnOnTgBot.php?r=$randstr" method="post">
