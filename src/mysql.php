@@ -7,6 +7,8 @@ echo <<<_INIT
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywors" content="список продуктов">
+    <meta name="description" content="Сервис, который умеет (еще учится) хранить список продуктов">
     <link rel="stylesheet" href="style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -27,11 +29,11 @@ _INIT;
   else $loggedin = FALSE;
 
 echo <<<_MAIN
-    <title>Добавление продукта: $userstr</title>
+    <title>Добавление продукта: $user</title>
   </head>
   <body>
-    <h1>Список моих продуктов</h1>
-    $userstr
+    <div class="container">
+      <h1>Список моих продуктов</h1>
 
 _MAIN;
 
@@ -39,20 +41,23 @@ if ($loggedin)
 {
 $date = date('Y-m-d');
 echo <<<_LOGGEDIN
-    <p>
-      <a data-role="button" data-inline="true" data-icon="action"
-      data-transition="slide" href='header.php?r=$randstr'>Список продуктов</a>
-    <a data-role="button" data-inline="true" data-icon="action"
-      data-transition="slide" href='deleteproduct.php?r=$randstr'>Удалить продукт</a>
-    <a data-role='button' data-inline='true' data-icon='action'
-      data-transition="slide" href='telegram.php?r=$randstr'>Телеграм-бот</a>
-    <a data-role="button" data-inline="true" data-icon="action"
-        data-transition="slide" href="logout.php?r=$randstr">Выйти</a>
-    </p>
-    <p>
-      Сегодняшняя дата: $date
-    </p>
-    <hr color="#db944e">
+          <div class="group">
+              <div class="nav">
+                <a href="header.php?r=$randstr">Список продуктов</a>
+              </div>
+              <div class="nav">
+                <a href="deleteproduct.php?r=$randstr">Удалить продукт</a>
+              </div>
+              <div class="nav">
+                <a href="telegram.php?r=$randstr">Телеграм-бот</a>
+              </div>
+              <div class="nav">
+                <a href="logout.php?r=$randstr">Выйти</a>
+              </div>
+          </div>
+        <div class="data">
+          Сегодняшняя дата: $date
+        </div>
 
 _LOGGEDIN;
 
@@ -70,7 +75,19 @@ if ($conn->connect_error) {
 $sql = "INSERT INTO $user (Name, ProductionDate, ExpirationDate, type) VALUES('$Name', '$ProductionDate', '$ExpirationDate', '$type')";
 $conn->set_charset('utf8');
 if ($conn->query($sql) === TRUE) {
-    echo "\t<p>\n\t\t👌 Продукт успешно добавлен в ваш список. Вернитесь назад, чтобы посмотреть обновленный список продуктов.\n\t</p>\n\t<a href='header.php?r=$randstr''>Вернуться назад</a><br><br> <img src='img/PeopleMemes-256px-2.gif' alt='Фотография' width='128' height='128'>
+    echo "<div class='box'>
+          \t\n\t\t👌 Продукт успешно добавлен в ваш список. Вернитесь назад, чтобы посмотреть обновленный список продуктов.\n\t\n\t
+          </div>
+          <div class='btn-back'>
+            <a href='header.php?r=$randstr'''>Вернуться назад</a>
+          </div>
+          <br>
+          <img src='img/PeopleMemes-256px-2.gif' alt='Фотография' width='128' height='128'>
+          <br>
+          <div class='GitHub'>
+            <a href='https://github.com/Gakhramanzode/fridge-v3' target='_blank'>GitHub</a>
+          </div>
+        </div>
   </body>
 </html>";
     // header('Location: /www/fridge-asker.site/header.php');
@@ -85,15 +102,14 @@ $conn->close();
   else
   {
 echo <<<_GUEST
-      <p>
-        <a data-role="button" data-inline="true" data-icon="check"
-        data-transition="slide" href="login.php?r=$randstr">Войти</a>
-        <a data-role="button" data-inline="true" data-icon="plus"
-        data-transition="slide" href="signup.php?r=$randstr">Регистрация</a>
-      </p>
-      <p>(
-        Вы должны войти в систему, чтобы использовать это приложение)
-      </p>
+      <div class="group">
+        <div class="nav">
+          <a href='login.php?r=$randstr'>Войти</a>
+        </div>
+        <div class="nav">
+          <a href='signup.php?r=$randstr'>Регистрация</a>
+        </div>
+      </div>
 
 _GUEST;
 }

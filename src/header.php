@@ -42,19 +42,23 @@ _MAIN;
   $date = date('Y-m-d');
 
 echo <<<_LOGGEDIN
-        <p>
-          <a data-role='button' data-inline='true' data-icon='action'
-            data-transition="slide" href='addproduct.php?r=$randstr'>Добавить продукт</a>
-          <a data-role='button' data-inline='true' data-icon='action'
-            data-transition="slide" href='deleteproduct.php?r=$randstr'>Удалить продукт</a>
-          <a data-role='button' data-inline='true' data-icon='action'
-            data-transition="slide" href='telegram.php?r=$randstr'>Телеграм-бот</a>
-          <a data-role='button' data-inline='true' data-icon='action'
-            data-transition="slide" href='logout.php?r=$randstr'>Выйти</a>
-        </p>    
-        <p>
+          <div class="group">
+              <div class="nav">
+                <a href='addproduct.php?r=$randstr'>Добавить продукт</a>
+              </div>
+              <div class="nav">
+                <a href="deleteproduct.php?r=$randstr">Удалить продукт</a>
+              </div>
+              <div class="nav">
+                <a href="telegram.php?r=$randstr">Телеграм-бот</a>
+              </div>
+              <div class="nav">
+                <a href="logout.php?r=$randstr">Выйти</a>
+              </div>
+          </div>
+        <div class='data'>
           Сегодняшняя дата: $date
-        </p>
+        </div>
 
 _LOGGEDIN;
 
@@ -62,7 +66,6 @@ _LOGGEDIN;
   if (!$db_server) die ("Невозможно подключиться ");
 
 echo <<<_LOGGEDIN
-        <hr color="#db944e">
         <div class="box">
           <h2>Ваш список продуктов</h2>
 
@@ -95,8 +98,11 @@ _LOGGEDIN;
       }
 
 echo <<<_LOGGEDIN
-          <img src="img/BoysClub-256px-19.gif" alt="Фотография" width="128" height="128"><br>
         </div>    
+      </div>
+      <img src="img/BoysClub-256px-19.gif" alt="Фотография" width="128" height="128"><br>
+      <div class="GitHub">
+        <a href="https://github.com/Gakhramanzode/fridge-v3" target="_blank">GitHub</a>
       </div>
     </body>
 </html>
@@ -105,12 +111,14 @@ _LOGGEDIN;
   else
   {
 echo <<<_GUEST
-      <p>
-        <a data-role="button" data-inline="true" data-icon="check"
-        data-transition="slide" href="login.php?r=$randstr">Войти</a>
-        <a data-role="button" data-inline="true" data-icon="plus"
-        data-transition="slide" href="signup.php?r=$randstr">Регистрация</a>
-      </p>
+      <div class="group">
+        <div class="nav">
+          <a href='login.php?r=$randstr'>Войти</a>
+        </div>
+        <div class="nav">
+          <a href='signup.php?r=$randstr'>Регистрация</a>
+        </div>
+      </div>
 
 _GUEST;
   }

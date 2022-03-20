@@ -7,6 +7,8 @@ echo <<<_INIT
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywors" content="список продуктов">
+    <meta name="description" content="Сервис, который умеет (еще учится) хранить список продуктов">
     <link rel="stylesheet" href="style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -30,7 +32,8 @@ echo <<<_MAIN
     <title>Подключение к телеграм-боту: $user</title>
   </head>
   <body>
-    <h1>Список моих продуктов</h1></div>
+    <div class="container">
+      <h1>Список моих продуктов</h1>
 
 _MAIN;
   
@@ -39,19 +42,23 @@ _MAIN;
   $date = date('Y-m-d');
 
 echo <<<_LOGGEDIN
-    <p>
-      <a data-role='button' data-inline='true' data-icon='action'
-        data-transition="slide" href='header.php?r=$randstr'>Список продуктов</a>
-      <a data-role='button' data-inline='true' data-icon='action'
-        data-transition="slide" href='addproduct.php?r=$randstr'>Добавить продукт</a>
-      <a data-role='button' data-inline='true' data-icon='action'
-        data-transition="slide" href='deleteproduct.php?r=$randstr'>Удалить продукт</a>
-      <a data-role='button' data-inline='true' data-icon='action'
-        data-transition="slide" href='logout.php?r=$randstr'>Выйти</a>
-    </p>
-    <p>
-      Сегодняшняя дата: $date
-    </p>
+          <div class="group">
+              <div class="nav">
+                <a href="header.php?r=$randstr">Список продуктов</a>
+              </div>
+              <div class="nav">
+                <a href="addproduct.php?r=$randstr">Добавить продукт</a>
+              </div>
+              <div class="nav">
+                <a href="deleteproduct.php?r=$randstr">Удалить продукт</a>
+              </div>
+              <div class="nav">
+                <a href="logout.php?r=$randstr">Выйти</a>
+              </div>
+          </div>
+        <div class="data">
+          Сегодняшняя дата: $date
+        </div>
 
 _LOGGEDIN;
 
@@ -59,23 +66,26 @@ _LOGGEDIN;
   if (!$db_server) die ("Невозможно подключиться ");
 
 echo <<<_LOGGEDIN
-    <hr color="#db944e">
-    <h2>Подлючиться к телеграм-боту</h2>
-      <p>
+      <div class="box">
+        <h2>Подлючиться к телеграм-боту</h2>
       <form action="turnOnTgBot.php?r=$randstr" method="post">
-        <label for="tg_id">Ваш ID:</label>
-        <input type="number" placeholder="Только цифры 🙏" min="0" name="tg_id">
-        <input type="submit" value="Подключай уже">
+        <div class="form-group">
+          <label for="tg_id">Ваш ID:</label>
+          <input type="number" placeholder="Только цифры 🙏" min="0" name="tg_id">
+        </div>
+        <button type="submit" class="btn">Подключай уже</button>
       </form>
-      </p>
-      <p>
-        Чтобы узнать свой ID:<br><br>
-        
-        1. Перейдите по ссылке <a href='https://t.me/fridge_asker_bot'>ссылке</a> (она направит на самого бота)<br>
-        2. Отправьте команду <code>/myid</code><br>
-        3. Скопируйте цифры. Это и есть ваш ID.<br><br>
-        Вставьте ID выше 👆
-      </p>
+        <h2>Чтобы узнать свой ID:</h2>
+          <ol>
+            <li>Перейдите по <a href="https://t.me/fridge_asker_bot" target="_blank">ссылке</a> (она направит на самого бота)</li>
+            <li>Отправьте команду <code>/myid</code></li>
+            <li>Скопируйте цифры. Это и есть ваш ID. Введите его выше 👆</li>
+          </ol>
+        </div>
+          <div class="GitHub">
+            <a href="https://github.com/Gakhramanzode/fridge-v3" target="_blank">GitHub</a>
+          </div>
+    </div>
     </body>
 </html>
 _LOGGEDIN;

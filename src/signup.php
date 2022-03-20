@@ -56,20 +56,25 @@ _END;
   }
 
 echo <<<_END
-      <form method='post' action='signup.php?r=$randstr'>$error
-        <p>
-          Пожалуйста, введите свои данные для регистрации
-        </p>
-        <p>
-          Имя пользователя
-        <input type='text' maxlength='13' name='user' value='$user'
-          onBlur='checkUser(this)' required pattern='^[a-zA-Z]+$' placeholder='Латинские буквы' size='15'>
-        </p>
-        <p>
-          Пароль
-        <input type='text' minlength='8' maxlength='16' name='pass' value='$pass' required pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$' placeholder='Не менее 8 знаков, буквы, цифры, спец символы' size='43'>
-        </p>
-        <input data-transition='slide' type='submit' value='Зарегистрироваться'>
+      <div class="box">
+        <div class='def-text'>
+          👇 Введите свои данные для регистрации:
+        </div>
+        <form method='post' action='signup.php?r=$randstr'>$error
+          <div class="form-group">
+            <label for='user'>Имя пользователя</label>
+            <input type='text' maxlength='13' name='user' value='$user' onBlur='checkUser(this)' required pattern='^[a-zA-Z]+$' placeholder='Латинские буквы'>
+          </div>
+          <div class="form-group">
+            <label for='pass'>Пароль</label>
+            <input type='text' minlength='8' maxlength='16' name='pass' value='$pass' required placeholder='Не менее 8 знаков' >
+          </div>
+          <button type="submit" class="btn">Зарегистрироваться</button>
+        </form>
+      </div>
+        <div class="GitHub">
+          <a href="https://github.com/Gakhramanzode/fridge-v3" target="_blank">GitHub</a>
+        </div>
   </body>
 </html>
 _END;

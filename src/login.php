@@ -8,7 +8,7 @@
     $pass = strtolower($_POST['pass']);
 
     if ($user == "" || $pass == "")
-      $error = '<strong color=>Не все поля были введены</strong>';
+      $error = '<strong>☝️ Не все поля были введены</strong>';
     else
     {
       $result = queryMySQL("SELECT user,pass FROM members WHERE user='$user' AND pass='$pass'");
@@ -21,31 +21,39 @@
       {
         $_SESSION['user'] = $user;
         $_SESSION['pass'] = $pass;
-        die("<div class='center'>Теперь вы вошли в систему. Пожалуйста,
-             <a data-transition='slide'
-               href='header.php?view=$user&r=$randstr'>нажмите здесь,</a>
-               чтобы продолжить. <br><br> <img src='img/WorldArt-256px-7.gif' alt='Фотография' width='128' height='128'> </div></div></body></html>");
+        die("<div class='box'>
+               <div class='def-text'>Теперь вы вошли в систему. Пожалуйста,
+               <a href='header.php?view=$user&r=$randstr'>нажмите здесь</a>, чтобы продолжить.
+               </div>
+             </div>
+               <img src='img/WorldArt-256px-7.gif' alt='Фотография' width='128' height='128'>
+            </body>
+          </html>");
       }
     }
   }
 
 echo <<<_END
+      <div class='box'>
       <form method='post' action='login.php?r=$randstr'>
-          <span class='error'>$error</span>
-        <p>
-          Пожалуйста, введите свои данные для входа в систему
-        </p>
-        <div>
+          <span>$error</span>
+          <div class='def-text'>
+            Введите свои данные для входа в систему:
+          </div>
+        <div class="form-group">
           <label for="Name">Имя пользователя</label>
           <input type='text' maxlength='16' name='user' value='$user'>
         </div>
-        
-        <div>
+        <div class="form-group">
           <label for="Password">Пароль</label>
           <input type='password' maxlength='16' name='pass' value='$pass'>
         </div>
-          <input data-transition='slide' type='submit' value='Войти'>
+          <button type="submit" class="btn">Войти</button>
       </form>
+      </div>
+        <div class="GitHub">
+          <a href="https://github.com/Gakhramanzode/fridge-v3" target="_blank">GitHub</a>
+        </div>
   </body>
 </html>
 _END;

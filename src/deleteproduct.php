@@ -7,6 +7,8 @@ echo <<<_INIT
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywors" content="список продуктов">
+    <meta name="description" content="Сервис, который умеет (еще учится) хранить список продуктов">
     <link rel="stylesheet" href="style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -27,11 +29,11 @@ _INIT;
   else $loggedin = FALSE;
 
 echo <<<_MAIN
-    <title>Удаление продукта: $userstr</title>
+    <title>Удаление продукта: $user</title>
   </head>
   <body>
-    <h1>Список моих продуктов</h1></div>
-    $userstr
+    <div class="container">
+      <h1>Список моих продуктов</h1>
 
 _MAIN;
   
@@ -40,19 +42,23 @@ _MAIN;
   $date = date('Y-m-d');
 
 echo <<<_LOGGEDIN
-    <p>
-        <a data-role='button' data-inline='true' data-icon='action'
-          data-transition="slide" href='header.php?r=$randstr'>Список продуктов</a>
-        <a data-role='button' data-inline='true' data-icon='action'
-          data-transition="slide" href='addproduct.php?r=$randstr'>Добавить продукт</a>
-        <a data-role='button' data-inline='true' data-icon='action'
-          data-transition="slide" href='telegram.php?r=$randstr'>Телеграм-бот</a>
-        <a data-role='button' data-inline='true' data-icon='action'
-          data-transition="slide" href='logout.php?r=$randstr'>Выйти</a>
-    </p>
-    <p>
-        Сегодняшняя дата: $date
-    </p>
+          <div class="group">
+              <div class="nav">
+                <a href="header.php?r=$randstr">Список продуктов</a>
+              </div>
+              <div class="nav">
+                <a href="addproduct.php?r=$randstr">Добавить продукт</a>
+              </div>
+              <div class="nav">
+                <a href="telegram.php?r=$randstr">Телеграм-бот</a>
+              </div>
+              <div class="nav">
+                <a href="logout.php?r=$randstr">Выйти</a>
+              </div>
+          </div>
+        <div class="data">
+          Сегодняшняя дата: $date
+        </div>
 
 _LOGGEDIN;
 
@@ -60,13 +66,15 @@ _LOGGEDIN;
   if (!$db_server) die ("Невозможно подключиться ");
 
 echo <<<_LOGGEDIN
-    <hr color="#db944e">
-    <h2>Удалить продукт из списка</h2>
-      <p>
+      <div class="box">
+      <div class="def-text">
+        <h2>Удалить продукт из списка</h2>
+      </div>
       <form action="delete.php?r=$randstr" method="post">
-        <label for="Name">Наименование продукта: </label>
-        <select name="select">
-        <option disabled selected>Выберите продукт</option>
+        <div class="form-group">
+          <label for="Name">Наименование продукта: </label>
+          <select name="select">
+          <option disabled selected>Выберите продукт</option>
 _LOGGEDIN;
 
   $db_server = mysqli_connect($host, $username, $pass, $data);
@@ -87,9 +95,14 @@ _LOGGEDIN;
 
 echo <<<_LOGGEDIN
       \n\t\t</select>
-      </p>
-      <input type="submit" value="Удалить продукт">
+      </div>
+      <button type="submit" class="btn">Удалить продукт</button>
       </form>
+      </div>
+          <div class="GitHub">
+            <a href="https://github.com/Gakhramanzode/fridge-v3" target="_blank">GitHub</a>
+          </div>
+    </div>
   </body>
 </html>
 _LOGGEDIN;
@@ -97,13 +110,14 @@ _LOGGEDIN;
     else
     {
 echo <<<_GUEST
-    <div class="center">
-        <a data-role="button" data-inline="true" data-icon="check"
-        data-transition="slide" href="login.php?r=$randstr">Войти</a>
-        <a data-role="button" data-inline="true" data-icon="plus"
-        data-transition="slide" href="signup.php?r=$randstr">Регистрация</a>
-    </div>
-    <p class="info">(Вы должны войти в систему, чтобы использовать это приложение)</p>
+      <div class="group">
+        <div class="nav">
+          <a href='login.php?r=$randstr'>Войти</a>
+        </div>
+        <div class="nav">
+          <a href='signup.php?r=$randstr'>Регистрация</a>
+        </div>
+      </div>
   
 _GUEST;
     }
