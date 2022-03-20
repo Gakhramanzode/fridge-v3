@@ -63,7 +63,8 @@ _LOGGEDIN;
 
 echo <<<_LOGGEDIN
         <hr color="#db944e">
-        <h2>Ваш список продуктов</h2>
+        <div class="box">
+          <h2>Ваш список продуктов</h2>
 
 _LOGGEDIN;
 
@@ -94,7 +95,8 @@ _LOGGEDIN;
       }
 
 echo <<<_LOGGEDIN
-        <img src="img/BoysClub-256px-19.gif" alt="Фотография" width="128" height="128"><br>
+          <img src="img/BoysClub-256px-19.gif" alt="Фотография" width="128" height="128"><br>
+        </div>    
       </div>
     </body>
 </html>
