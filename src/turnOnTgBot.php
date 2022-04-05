@@ -29,7 +29,7 @@ _INIT;
   else $loggedin = FALSE;
 
 echo <<<_MAIN
-    <title>Подключение к телеграм-боту: $user</title>
+    <title>$user · подключение к телеграм-боту</title>
   </head>
   <body>
     <div class="container">

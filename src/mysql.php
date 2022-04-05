@@ -29,7 +29,7 @@ _INIT;
   else $loggedin = FALSE;
 
 echo <<<_MAIN
-    <title>Добавление продукта: $user</title>
+    <title>$user · добавление продукта</title>
   </head>
   <body>
     <div class="container">
