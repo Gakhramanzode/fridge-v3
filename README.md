@@ -19,4 +19,4 @@
 ![image](https://user-images.githubusercontent.com/62985982/163118060-b831b104-202e-40da-8a8d-6726b8500c54.png)
 ![image](https://user-images.githubusercontent.com/62985982/163118186-694ba612-000d-4389-b363-4a49b1a3df6d.png)
 
-Обратную связь можно отправилять на мою почту: asker.kakhramanov@me.com
+Обратную связь можно отправилять на электронную почту: asker.kakhramanov@me.com
