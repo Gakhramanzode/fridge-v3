@@ -1,5 +1,5 @@
 <?php
-  $host = '';
+  $host = '1';
   $data = '';
   $username = '';
   $pass = '';
