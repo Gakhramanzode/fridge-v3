@@ -16,7 +16,7 @@
 ![image](https://user-images.githubusercontent.com/62985982/163117048-521f2f69-3b7b-4a0e-a644-302564de9ecf.png)
 ![image](https://user-images.githubusercontent.com/62985982/163117102-e2d1eb95-09df-4b11-a732-f773f5c090cc.png)
 
-Скриншоты бота в телеграм:
+Скриншоты из тестового бота в телеграм:
 ![image](https://user-images.githubusercontent.com/62985982/163118060-b831b104-202e-40da-8a8d-6726b8500c54.png)
 ![image](https://user-images.githubusercontent.com/62985982/163118186-694ba612-000d-4389-b363-4a49b1a3df6d.png)
 
