@@ -1,8 +1,8 @@
 <?php
-  $host = '1';
-  $data = '';
-  $username = '';
-  $pass = '';
+  $host = 'localhost';
+  $data = 'u1603907_publications1';
+  $username = 'u1603907_pub';
+  $pass = 'qP3dN1kE0d';
   $chrs = 'utf8mb4';
   $attr = "mysql:host=$host;dbname=$data;charset=$chrs";
   $opts =
