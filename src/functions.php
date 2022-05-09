@@ -4,6 +4,7 @@
   $username = 'u1603907_pub';
   $pass = 'qP3dN1kE0d';
   $chrs = 'utf8mb4';
+  
   $attr = "mysql:host=$host;dbname=$data;charset=$chrs";
   $opts =
   [
