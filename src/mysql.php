@@ -82,7 +82,7 @@ if ($conn->query($sql) === TRUE) {
             <a href='header.php?r=$randstr'''>Вернуться назад</a>
           </div>
           <br>
-          <img src='img/PeopleMemes-256px-2.gif' alt='Фотография' width='128' height='128'>
+          <img src='https://storage.yandexcloud.net/tinmatch/PeopleMemes-256px-2.gif' alt='Фотография' width='128' height='128'>
           <br>
           <div class='GitHub'>
             <a href='https://github.com/Gakhramanzode/fridge-v3' target='_blank'>GitHub</a>

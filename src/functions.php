@@ -1,13 +1,9 @@
 <?php
-  $host = 'localhost';
+  $host = '';
   $data = '';
   $username = '';
   $pass = '';
   $chrs = 'utf8mb4';
-
-
-  
-
   $attr = "mysql:host=$host;dbname=$data;charset=$chrs";
   $opts =
   [

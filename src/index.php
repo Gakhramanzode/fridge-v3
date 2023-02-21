@@ -7,7 +7,7 @@
             Добро пожаловать на сайт, пожалуйста, войдите или зарегистрируйтесь
           </div>
         </div>
-        <img src="img/WorldArt-256px-5.gif" alt="Фотография" width="128" height="128">
+        <img src="https://storage.yandexcloud.net/tinmatch/WorldArt-256px-5.gif" alt="Фотография" width="128" height="128">
       </body>
     </html>';
 

@@ -26,7 +26,7 @@
                <a href='header.php?view=$user&r=$randstr'>нажмите здесь</a>, чтобы продолжить.
                </div>
              </div>
-               <img src='img/WorldArt-256px-7.gif' alt='Фотография' width='128' height='128'>
+               <img src='https://storage.yandexcloud.net/tinmatch/WorldArt-256px-7.gif' alt='Фотография' width='128' height='128'>
             </body>
           </html>");
       }
