@@ -10,7 +10,7 @@
 - [x] код написан на PHP, HTML, CSS;
 - [x] код выложен на GitHub;
 - [ ] планируется опубликовать бота в телеграм, который написан на Python;
-- [x] миграция в Yandex Cloud;
+- [x] миграция в Yandex Cloud.
 
 Скриншоты сайта:
 ![image](https://user-images.githubusercontent.com/62985982/163116872-04a6a3b0-81f9-467d-8291-d2f6e04b9c00.png)
