@@ -72,7 +72,7 @@ if ($conn->connect_error) {
     die ('Не удалось подключиться ' . $conn->connect_error);
 }
 
-$sql = "INSERT INTO $user (Name, ProductionDate, ExpirationDate, type) VALUES('$Name', '$ProductionDate', '$ExpirationDate', '$type')";
+$sql = "INSERT INTO $user (Name, ProductionDate, ExpirationDate, type) VALUES('$Name', CURDATE(), '$ExpirationDate', '$type')";
 $conn->set_charset('utf8');
 if ($conn->query($sql) === TRUE) {
     echo "<div class='box'>
